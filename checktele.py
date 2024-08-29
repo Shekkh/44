@@ -139,13 +139,13 @@ async def _(event):
  الانواع :
  -- -- -- -- - 
  رباعي
- ss_xx - { عشوائي - كود جديد }
+ ss_xx - { عشوائي - كود فحص القديم }
  
  رباعي1
- s_sxx - { رباعي عشوائي - حروف فقط }
+ s_sxx - { رباعي عشوائي - حروف فقط كود فحص قديم }
  
  رباعي2 
- ss_88 - { رباعي عشوائي - رقمين }
+ ss_88 - { رباعي عشوائي - رقمين كود فحص قديم }
  
  رباعي3
  s_sxx - { شخطه بدايه - كود الجديد }
@@ -198,13 +198,13 @@ async def hunterusername(event):
         ch = str(msg[2])
         if "@" in ch:
             ch = ch.replace("@", "")
-        await event.edit(f"حسناً سيتم بدء الصيد في @{ch} .")
+        await event.edit(f"حسناً سيتم صيد {choice} في @{ch} .")
     except:
         try:
             ch = await eighthon(
                 functions.channels.CreateChannelRequest(
-                    title="صيد معرفات رباعي",
-                    about="تم الصيد يوزر رباعي",
+                    title="تم صيد يوزر رباعي",
+                    about="تم الصيد يوزر رباعي - Пойман Quad ID",
                 )
             )
             ch = ch.updates[1].channel_id
@@ -230,7 +230,7 @@ async def hunterusername(event):
                 )
                 await event.client.send_message(
                     event.chat_id,
-                    f"⌯ تم الصيد اليوزر @{username}",
+                    f"⌯ تم الصيد اليوزر @{username} - {choice} ",
                 )
                 break
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -260,7 +260,7 @@ async def hunterusername(event):
         trys[0] += 1
     isclaim.clear()
     isclaim.append("off")
-    await event.client.send_message(event.chat_id, "انتهاء الفحص تم صيد معرف #x5")
+    await event.client.send_message(event.chat_id, "انتهاء الفحص تم صيد رباعي #x5")
 
 
 @eighthon.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت"))
